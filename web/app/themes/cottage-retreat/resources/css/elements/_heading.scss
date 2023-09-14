@@ -1,0 +1,115 @@
+/* ============================================================
+	* Elements - Heading
+============================================================ */
+
+/**
+ * The styling for headings across the site you can edit
+ * the sizing in the typography config under settings.
+ *
+ */
+
+.e-heading {
+	margin: 0;
+	padding: 0;
+	color: $colour-primary;
+	font-family: $font-family-primary;
+	font-weight: $heading-weight;
+}
+
+
+
+
+
+/* Heading Sizes
+============================================================ */
+
+h1, .e-heading--one {
+	@include heading(one);
+}
+
+
+h2, .e-heading--two {
+	@include heading(two);
+}
+
+
+h3, .e-heading--three {
+	@include heading(three);
+}
+
+
+h4, .e-heading--four {
+	@include heading(four);
+}
+
+
+h5, .e-heading--five {
+	@include heading(five);
+}
+
+
+h6, .e-heading--six {
+	@include heading(six);
+}
+
+
+.e-heading--mobile {
+	@include heading(mobile);
+}
+
+
+.e-heading--mobile-small {
+	@include heading(mobile-small);
+}
+
+
+.e-heading--mobile-tiny {
+	@include heading(mobile-tiny);
+}
+
+
+
+
+
+
+/* Responsive Headings
+============================================================ */
+
+@each $device, $breakpoint in $breakpoints {
+	@media (min-width: $breakpoint) {
+		.e-heading--one\@#{$device} { @include heading(one); }
+		.e-heading--two\@#{$device} { @include heading(two); }
+		.e-heading--three\@#{$device} { @include heading(three); }
+		.e-heading--four\@#{$device} { @include heading(four); }
+		.e-heading--five\@#{$device} { @include heading(five); }
+		.e-heading--six\@#{$device} { @include heading(six); }
+		.e-heading--mobile\@#{$device} { @include heading(mobile); }
+		.e-heading--mobile-small\@#{$device} { @include heading(mobile-small); }
+		.e-heading--mobile-tiny\@#{$device} { @include heading(mobile-tiny); }
+	}
+}
+
+
+
+
+
+/* Heading Colour
+============================================================ */
+
+.e-heading--white { color: $white; }
+.e-heading--black { color: $black; }
+.e-heading--primary { color: $colour-primary; }
+.e-heading--secondary { color: $colour-secondary; }
+
+
+
+
+
+/* Heading Weights
+============================================================ */
+
+.e-heading--light { font-weight: $font-light; }
+.e-heading--regular { font-weight: $font-regular; }
+.e-heading--medium { font-weight: $font-medium; }
+.e-heading--semi { font-weight: $font-semi; }
+.e-heading--bold { font-weight: $font-bold; }

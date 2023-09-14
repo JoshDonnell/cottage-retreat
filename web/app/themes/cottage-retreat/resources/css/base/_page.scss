@@ -1,0 +1,55 @@
+/* ============================================================
+	* Base - Page
+============================================================ */
+
+/**
+ * Default page styling and settings for html
+ * and body. 
+ * 
+ * 1. The font & type settings can be edited in the typography setting.
+ * 2. The colours can be set in the colours settings.
+ * 3. Set the scroll behavior to be default instead of smooth .
+ * 4. Sets the colours when highlighting.
+ *
+ */
+
+html {
+	font-size: $font-size-body; /* 1 */
+	line-height: $line-height-body; /* 1 */
+	background: $page-background-colour; /* 2 */
+	font-weight: $font-regular; /* 1 */
+	font-family: $font-family-primary; /* 1 */
+	color: $black; /* 2 */
+	scroll-behavior: smooth;
+
+	@media screen and (prefers-reduced-motion: reduce) {
+		scroll-behavior: auto; /* 3 */
+	}
+}
+
+
+body {
+	-ms-overflow-style:none;
+
+	&.isLocked {
+		overflow-y: hidden;
+	}
+
+}
+
+::-webkit-scrollbar {
+	display: none;
+}
+
+::-webkit-scrollbar-button {
+	display: none;
+}
+
+
+* { box-sizing: border-box; }
+
+
+::selection { 
+	background-color: $colour-primary;  /* 4 */
+	color: $white; /* 4 */
+}

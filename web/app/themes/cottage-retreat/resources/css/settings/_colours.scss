@@ -1,0 +1,59 @@
+/* ==========================================================================
+   * Settings - Colours
+========================================================================== */
+
+/**
+ * The global colour settings for the project including
+ * the palette and the global colour settings.
+ *
+ */
+
+
+/* Colour Palette
+============================================================ */
+
+$colour-primary: #2E4845;
+$colour-secondary: #253F3C;
+$colour-tertiary: #D3DDC6;
+
+
+
+
+
+/* Colour Defaults
+============================================================ */
+
+$black: $colour-primary;
+$white: #F7FAF6;
+
+
+
+
+
+/* Colour Neutrals
+============================================================ */
+
+$grey: #CAD1CE;
+$grey-light: #F1F3F0;
+$grey-dark: #959595;
+
+
+
+
+
+/* Colour States
+============================================================ */
+
+$success: #00B453;
+$warning: #FF8C21;
+$error: #E83644;
+$disabled: #D9D9D9;
+
+
+
+
+
+/* Colour Settings
+============================================================ */
+
+$page-background-colour: $white;

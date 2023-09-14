@@ -1,0 +1,22 @@
+<section class="o-row o-row--white u-pt-5x u-pt-6x@ipad-pro u-no-overflow">
+	<div class="u-animate js-hero-wrapper">
+		<div class="o-container">
+			<div class="o-layout o-layout--gutter">
+				<div class="o-layout__item u-width-5/6@ipad u-width-2/3@laptop">
+					<h1 class="e-heading e-heading--mobile  e-heading--three@ipad e-heading--two@laptop">{{ data.heading ?: post.title }}</h1>
+				</div>
+			</div>
+		</div>
+
+		{% if data.images.desktop_image %}
+			<div class="u-mt-alt u-mt-grid-2x@ipad">
+				{{ responsiveImage(
+					data.images.desktop_image,
+					parentClass = "e-media e-media--hero",
+					childClass = "e-media e-media--cover",
+					fetchpriority = "high"
+				) }}
+			</div>
+		{% endif %}
+	</div>
+</section>

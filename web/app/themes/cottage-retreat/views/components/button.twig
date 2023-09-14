@@ -1,0 +1,8 @@
+<a
+    class="e-btn e-btn--{{ colour }} u-flex-inline u-v-center"
+    href="{{ link }}"
+    {% if target %}target="{{ tagret }}"{% endif %}
+>
+    <span class="u-mr-grid">{{ title }}</span>
+    {% include 'components/arrow.twig' %}
+</a>

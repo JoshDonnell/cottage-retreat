@@ -1,0 +1,19 @@
+/* ============================================================
+	* Objects - Bare List
+============================================================ */
+
+/**
+ * A styling for lists to remove styling
+ *
+ */
+
+.o-list-bare {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+
+	.o-list-bare__item {
+		margin-left: 0;
+	}

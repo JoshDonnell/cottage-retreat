@@ -1,0 +1,37 @@
+<section class="o-row o-row--white">
+    <div class="o-container u-animate js-accordion-wrapper">
+        <div class="o-layout o-layout--gutter">
+            <div class="o-layout__item u-width-5/6@ipad u-width-2/3@ipad-pro u-width-5/12@laptop u-push-1/12@ipad-pro">
+                {% if data.heading %}  
+                    <h2 class="e-heading e-heading--mobile e-heading--three@ipad e-heading--two@laptop">{{ data.heading }}</h2>
+                {% endif %}
+
+                {% if data.content %}
+                    <p 
+                        {% if data.heading %}class="u-mt-grid"{% endif %}
+                    >
+                        {{ data.content }}
+                    </p>
+                {% endif %}
+            </div>
+
+            <div class="o-layout__item u-width-5/6@ipad-pro u-push-1/12@ipad-pro u-mt-grid-2x u-mt-50">
+                {% for accordion in data.accordions %}
+                    {% include 'components/accordion.twig' with {
+                        data : accordion
+                    } %}
+                {% endfor %}
+                
+                {% if data.call_to_action.url and data.call_to_action.title %}
+                    <div class="u-mt-grid-2x">
+                        {% include 'components/button.twig' with {
+                            link: data.call_to_action.url,
+                            title: data.call_to_action.title,
+                            colour: 'primary'
+                        } %}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>

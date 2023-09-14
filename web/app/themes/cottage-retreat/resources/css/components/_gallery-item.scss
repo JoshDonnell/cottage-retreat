@@ -1,0 +1,43 @@
+/* ============================================================
+	* Components - Gallery Item
+============================================================ */
+
+
+.c-gallery-item {
+    
+    &:nth-of-type(1), &:nth-of-type(3), &:nth-of-type(6), &:nth-of-type(7) {
+        .c-gallery-item__media { @include aspect-ratio(1, 1); }
+    }
+
+    &:nth-of-type(2), &:nth-of-type(4), &:nth-of-type(5)   {
+        .c-gallery-item__media { @include aspect-ratio(335, 400); }
+    }
+
+
+    @include by-device(ipad) {
+        &:nth-of-type(1) {
+            .c-gallery-item__media { @include aspect-ratio(820, 525); }
+        }
+
+        &:nth-of-type(2) {
+            .c-gallery-item__media { @include aspect-ratio(400, 525); }
+        }
+
+        &:nth-of-type(3) {
+            .c-gallery-item__media { @include aspect-ratio(1240, 489); }
+        }
+
+        &:nth-of-type(4), &:nth-of-type(5) {
+            .c-gallery-item__media { @include aspect-ratio(610, 670); }
+        }
+
+        &:nth-of-type(6) {
+            .c-gallery-item__media { @include aspect-ratio(400, 371); }
+        }
+
+        &:nth-of-type(7) {
+            .c-gallery-item__media { @include aspect-ratio(820, 371); }
+        }
+    }
+
+}

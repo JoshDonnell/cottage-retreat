@@ -1,0 +1,102 @@
+/* ============================================================
+	* Elements - Media
+============================================================ */
+
+/**
+ * Media styling for images and videos
+ *
+ */
+
+.e-media {
+	width: 100%;
+	height: auto;
+	display: flex;
+}
+
+
+
+
+
+/* Media Variations
+============================================================ */
+
+.e-media--cover {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100% !important;
+	object-fit: cover;
+	pointer-events: none;
+}
+
+
+
+
+
+/* Media Sizes
+============================================================ */
+
+.e-media--logo { 
+	width: 142px;
+	height: 10px;
+
+	path { @include transition(fill) }
+
+	@include by-device(ipad-pro) {
+		width: 170px;
+		height: 12px;
+	}
+}
+
+
+
+.e-media--hero {
+	margin-left: $spacing-grid;
+	width: auto;
+	@include aspect-ratio(355, 314);
+	
+	@include by-device(ipad) {
+		margin-left: $spacing-grid-2x;
+		@include aspect-ratio(768, 450);
+	}
+
+	@include by-device(ipad-pro) {
+		@include aspect-ratio(1024, 500);
+	}
+
+	@include by-device(container) {	
+		@include aspect-ratio(1340, 600);
+		margin-left: calc((100vw - $container-width-clean)/2);
+	}
+
+}
+
+
+.e-media--framework {
+	width: 73px;
+	height: 10px;
+
+
+	path { @include transition(fill) }
+
+
+	@media (hover : hover) {
+		&:hover {
+			path { fill: $colour-tertiary; }
+		}
+	}
+	
+}
+
+
+
+.e-media--icon {
+	width: 26.5px;
+	height: 10px;
+	left: 0;
+	position: relative;
+	@include transition(left);
+
+	path { @include transition(stroke) }
+}

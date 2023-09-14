@@ -1,0 +1,48 @@
+/* ============================================================
+	* Components - Header
+============================================================ */
+
+.c-header { 
+
+	&.isActive {
+		@include by-device(ipad-pro--max) {
+			.c-header__logo {
+				path { fill: $white }
+			}
+
+
+			.c-header__mobile-menu {
+				opacity: 1;
+				top: 0;
+				pointer-events: auto;
+			}
+
+		}
+	}
+
+}
+
+
+	.c-header__logo, .c-header__menu {
+		opacity: 0;
+		top: -$spacing-grid;
+		transition: top 0.75s $transition-ease, opacity 0.5s $transition-ease;
+	}
+
+
+	.c-header__mobile-menu {
+		position: absolute;
+		top: -$spacing-base;
+		left: 0;
+		width: 100%;
+		min-height: 100vh;
+		background-color: $colour-primary;
+		opacity: 0;
+		pointer-events: none;
+		@include transition(opacity, top);
+
+
+		@include by-device(ipad-pro) {
+			display: none;
+		}
+	}

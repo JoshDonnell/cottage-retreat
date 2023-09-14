@@ -1,0 +1,28 @@
+<footer class="o-row c-footer u-pt-0 u-pb-grid-2x u-pb-3x@ipad u-pb-4x@ipad-pro">
+    <div class="o-container  u-animate js-footer-wrapper">
+        <div class="u-pt-grid-2x u-pt-3x@ipad u-pt-4x@ipad-pro u-border-top u-flex@ipad-pro u-v-center u-space-between">
+            {% include 'layout/logo.twig' %}
+
+            {% include 'layout/menu.twig' with {
+                class: 'c-footer__menu  u-mt-grid-2x u-mt-0@ipad-pro',
+                menu: menu.footer_navigation
+            } %}
+        </div>
+
+        <div class="u-flex@ipad-pro u-flex-reverse@ipad-pro u-v-center u-space-between u-mt u-pt-6x@ipad-pro u-mt">
+            {% include 'layout/menu.twig' with {
+                class: 'c-footer__menu u-tar@ipad-pro',
+                menu: menu.privacy_navigation,
+                direction: 'vertical'
+            } %}
+
+            <div class="u-mt-6x u-mt-0@ipad-pro">
+                <p class="u-font-small u-font-light">{{ site.name }} &copy; {{ "now"|date("Y") }} All rights Reserved.</p>
+                <div class="u-font-small u-font-light u-mt-half u-mt-quarter@ipad-pro">
+                    <span>Design by </span>
+                    <a href="https://www.weareframework.co.uk/" rel="noopener noreferrer" target="_blank">{% include 'components/framework.twig' %}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

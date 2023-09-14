@@ -1,0 +1,79 @@
+/* ============================================================
+	* Objects - Row
+============================================================ */
+
+/**
+ * The styling for rows(sections) accross the site,
+ * we apply the background colors to our blocks
+ * through this rows file. We can call our rows
+ * sizing set in the settings/rows file like:
+ * <div class="o-row  o-row--large"></div>
+ *
+ * 1. Reset spacing.
+ *
+ */
+
+.o-row {
+	display: block;
+	width: 100%;
+	margin: 0 /* 1 */;
+	padding: 0 /* 1 */;
+	position: relative;
+}
+
+
+
+
+
+/* Spacing Variants
+*
+* This is all auto generated from the settings/rows to make
+* our row spacing simple throughtout the device range.
+============================================================ */
+
+@each $name, $sizes in $rows {
+	$sufix: '';
+
+	@if ($name != 'default') {
+		$sufix: unquote("--")+$name;
+	}
+
+	.o-row#{$sufix} {
+		@each $breakpoint, $size in $sizes {
+			@if ($breakpoint == 'default') {
+				padding: $size 0;
+			} @else {
+				@include by-device($breakpoint) {
+					padding: $size 0;
+				}
+			}
+		}
+	}
+
+}
+
+
+
+
+
+/* Colour Variants
+============================================================ */
+
+.o-row--primary { background-color: $colour-primary; }
+.o-row--secondary { background-color: $colour-secondary; }
+.o-row--white { background-color: $white; }
+.o-row--black { background-color: $black; }
+.o-row--grey { background-color: $grey-light; }
+
+
+
+
+
+/* Remove padding on touching elements
+============================================================ */
+
+.o-row--secondary + .o-row--secondary,
+.o-row--primary + .o-row--primary,
+.o-row--white + .o-row--white,
+.o-row--grey + .o-row--grey,
+.o-row--black + .o-row--black { padding-top: 0; }

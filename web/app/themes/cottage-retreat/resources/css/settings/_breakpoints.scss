@@ -1,0 +1,20 @@
+/* ==========================================================================
+   * Settings - Breakpoints
+   ========================================================================== */
+
+/**
+ *  An array of breakpoints to create our spacing, grids and helpers.
+ *
+ */
+
+$breakpoints: (
+	iphone-small: 375px,
+	iphone-max: 640px,
+	ipad: 768px,
+	checkout: 769px,
+	ipad-pro: 1024px,
+	laptop: 1280px,
+	container: 1320px,
+	macbook: 1440px,
+	desktop: 1920px,
+);

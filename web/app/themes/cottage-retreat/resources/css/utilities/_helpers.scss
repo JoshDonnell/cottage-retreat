@@ -1,0 +1,208 @@
+/* ============================================================
+	* Utilities - Helpers
+============================================================ */
+
+/**
+ * The helpers file is a simple place to add commenly used
+ * helpers to maintain a DRY code app.
+ *
+ */
+
+/** Positions
+============================================================ */
+
+.u-pos-rel { position: relative; }
+
+
+
+
+
+/** No click events
+============================================================ */
+
+.u-no-clicky {
+	pointer-events: none;
+
+	@each $device, $breakpoint in $breakpoints {
+		@media (min-width: $breakpoint) {
+			.u-no-clicky\@#{$device} { pointer-events: none; }
+		}
+	}
+}
+
+
+
+
+
+/** Text Alignment
+============================================================ */
+
+.u-tac { text-align: center; }
+.u-tar { text-align: right; }
+.u-tal { text-align: left; }
+
+@each $device, $breakpoint in $breakpoints {
+	@media (min-width: $breakpoint) {
+		.u-tac\@#{$device} { text-align: center; }
+		.u-tar\@#{$device} { text-align: right; }
+		.u-tal\@#{$device} { text-align: left; }
+	}
+}
+
+
+
+
+
+/** Text Uppercase
+*
+* A helper to make text uppercase.
+============================================================ */
+
+.u-uppercase { text-transform: uppercase; }
+
+
+
+
+
+/** Tracked Text
+============================================================ */
+
+.u-tracked { letter-spacing: 3px; }
+
+
+
+
+
+/** Font Colour
+*
+* Colouring text that isn't a heading
+============================================================= */
+.u-font-colour-white { color: $white; }
+.u-font-colour-black { color: $black; }
+.u-font-colour-primary { color: $colour-primary; }
+.u-font-colour-secondary { color: $colour-secondary; }
+.u-font-colour-grey { color: $grey; }
+
+
+
+
+
+/** Font Weights
+*
+* Setting font options by class
+============================================================= */
+
+.u-font-light { font-weight: $font-light; }
+.u-font-regular { font-weight: $font-regular; }
+.u-font-medium { font-weight: $font-medium; }
+.u-font-semi { font-weight: $font-semi; }
+.u-font-bold { font-weight: $font-bold; }
+
+
+
+
+
+/** Font Size
+*
+* Setting font size by class
+============================================================= */
+
+.u-font-small {
+	font-size: $font-size-small;
+	line-height: $line-height-small;
+}
+
+
+
+
+
+/** No overflow
+*
+* Hide all overflow
+============================================================ */
+
+.u-no-overflow { overflow: hidden; }
+
+
+
+
+
+/** Margin Padding Tools
+*
+* Helper to remove margin / padding from first or last of
+* type, helpful with menus or lists
+============================================================ */
+
+.u-remove-first {
+	&:first-of-type {
+		margin-left: 0;
+		padding-left: 0;
+		margin-top: 0;
+	}
+}
+
+
+.u-remove-last {
+	&:last-of-type {
+		margin-right: 0;
+		padding-right: 0;
+		margin-bottom: 0;
+	}
+}
+
+
+
+
+
+/* No Scroll
+============================================================ */
+.u-no-scroll {
+	overflow-y: hidden;
+}
+
+
+
+
+
+/* Z Index
+============================================================ */
+.u-z-up { z-index: 99; }
+.u-z-middle { z-index: 50; }
+.u-z-down { z-index: 1; }
+
+
+
+
+
+/* No Whitespace
+============================================================ */
+.u-no-whitespace { white-space: nowrap; }
+
+
+
+
+
+/* Pointer
+============================================================ */
+.u-pointer { cursor: pointer; }
+.u-not-allowed { cursor: not-allowed; }
+
+
+
+
+
+/* Border
+============================================================ */
+.u-border-bottom { border-bottom: 1px solid $grey; }
+.u-border-top { border-top: 1px solid $grey; }
+
+
+
+
+
+/* Animate Helper
+============================================================ */
+
+.u-animate {
+	opacity: 0;
+}

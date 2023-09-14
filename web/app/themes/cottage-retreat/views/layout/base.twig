@@ -1,0 +1,23 @@
+<!doctype html>	
+    {% block html_header %}
+        {% include 'layout/html-header.twig' %}
+    {% endblock %}
+
+    <body class="{{body_class}}">
+        {{ function('wp_body_open') }}
+        
+        {% block header %}
+            {% include 'layout/header.twig' %}
+        {% endblock %}
+
+        {% block content %}
+			Sorry, no content for this page
+		{% endblock %}
+
+        {% block footer %}
+            {% include 'layout/footer.twig' %}
+            {{ function('wp_footer') }}
+        {% endblock %}
+    </body>
+</html>
+    

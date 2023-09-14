@@ -1,0 +1,304 @@
+/* ============================================================
+	* Components - Editable
+============================================================ */
+
+/**
+ * The styling for any editable content on a CMS site, the idea
+ * being to wrap any wysiwyg content sections with the
+ * "c-editable" class then we can predefine styles this way
+ * we do not rely on a default for the whole site.
+ *
+ */
+
+.c-editable {
+
+	h1,h2,h3,h4,h5,h6 {
+		margin-bottom: $spacing-base;
+		color: $colour-primary;
+		font-family: $font-family-primary;
+		font-weight: $heading-weight;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+
+	h1 {
+		margin-top: $spacing-base;
+		margin-bottom: $spacing-2x;
+		@include heading(three);
+
+		@include by-device(ipad) {
+			margin-top: $spacing-2x;
+			margin-bottom: $spacing-2x;
+			@include heading(two);
+		}
+
+		@include by-device(ipad-pro) {
+			@include heading(one);
+		}
+
+		&:first-child {
+			margin-top: 0;
+		}
+	}
+
+
+	h2 + p { margin-top: 0; }
+
+
+	h2 {
+		margin-top: ($spacing-base + $spacing-half);
+		margin-bottom: $spacing-2x;
+
+		@include heading(three);
+
+		@include by-device(ipad-pro) {
+			@include heading(two);
+		}
+
+		&:first-child { margin-top: 0; }
+
+		&:last-child { margin-bottom: 0; }
+	}
+
+
+	h2 + h4 { margin-top: 0; }
+
+
+	h3 {
+		margin-top: $spacing-base;
+		margin-bottom: $spacing-2x;
+		@include heading(four);
+
+		@include by-device(ipad-pro) {
+			@include heading(three);
+		}
+
+		&:first-child { margin-top: 0; }
+
+		&:last-child { margin-bottom: 0; }
+	}
+
+
+	h3 + p { margin-top: 0; }
+
+
+	h4 {
+		margin-top: $spacing-base;
+		margin-bottom: $spacing-base;
+		@include heading(five);
+
+		@include by-device(ipad-pro) {
+			@include heading(four);
+		}
+
+		&:first-child { margin-top: 0; }
+
+		&:last-child { margin-bottom: 0; }
+	}
+
+
+	h4 + p { margin-top: 0; }
+
+
+	h5 {
+		margin-top: $spacing-half;
+		margin-bottom: $spacing-half;
+		@include heading(five);
+
+		&:first-child { margin-top: 0; }
+
+		&:last-child { margin-bottom: 0; }
+	}
+
+
+	h6 {
+		@include heading(six);
+
+		&:first-child { margin-top: 0; }
+
+		&:last-child { margin-bottom: 0; }
+	}
+
+
+	p {
+		display: block;
+		margin: $spacing-base 0;
+		color: $black;
+
+		&:last-child { margin-bottom: 0; }
+
+		&:first-child { margin-top: 0; }
+	}
+
+
+	a {
+		font-weight: $font-regular;
+		color: $colour-primary;
+		text-decoration: underline;
+		@include transition(color);
+	}
+
+
+	ul li,
+	ol li {
+		list-style-position: outside;
+		color: $black;
+		line-height: $line-height-body;
+	}
+
+
+	ol {
+		counter-reset: my-awesome-counter;
+		list-style: none;
+		padding-left: 40px;
+		border-top: 1px solid $grey-light;
+		border-bottom: 1px solid $grey-light;
+		padding-top: $spacing-base !important;
+		padding-bottom: $spacing-base !important;
+	}
+
+
+	ol li {
+		margin-left: 25px;
+		counter-increment: my-awesome-counter;
+		position: relative;
+		margin-bottom: $spacing-half;
+	}
+
+
+	ol li::before {
+		content: counter(my-awesome-counter);
+		left: -25px;
+		position: absolute;
+		font-weight: $font-bold;
+		color: $colour-primary;
+	}
+
+
+	ul,ol {
+		padding: 0;
+	}
+
+
+	blockquote {
+		display: inline-block;
+		margin: $spacing-base 0;
+
+		&:first-child { margin-top: 0; }
+
+		p {
+			margin: 0;
+			display: inline-block;
+			margin-top: $spacing-half;
+			@include heading(four);
+		}
+
+	}
+
+
+	hr {
+		margin: ($spacing-base + $spacing-half) 0;
+		border-color: $colour-primary;
+	}
+
+
+	img,
+	.wp-caption {
+		height: auto;
+		display: inline-block;
+		padding: $spacing-2x 0;
+
+		&:first { padding-top: 0; }
+	}
+
+
+	img + img { padding-bottom: 0; }
+
+
+	strong { font-weight: $font-bold; }
+
+
+	table {
+		border-collapse: collapse;
+		width: 100%;
+		margin-top: $spacing-2x;
+		margin-bottom: $spacing-2x;
+		border-radius: $border-radius;
+		overflow: hidden;
+
+		&:first-child {
+			margin-top: 0;
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+
+	tbody tr {
+		background-color: $grey-light;
+
+		&:first-of-type {
+			background-color: $colour-primary;
+			color: $white;
+			font-weight: $font-bold;
+			border-top-left-radius: $border-radius;
+			border-top-right-radius: $border-radius;
+		}
+
+		&:last-of-type {
+			border-bottom-left-radius: $border-radius;
+			border-bottom-right-radius: $border-radius;
+		}
+
+		&:nth-child(even) {
+			background-color: $grey-light;
+		}
+	}
+
+
+	table, th, td {
+		border: 1px solid $white;
+	}
+
+
+	th, td {
+		padding: 10px;
+	}
+
+}
+
+
+
+
+
+/* White editable option
+============================================================ */
+
+.c-editable--white {
+
+	h1,h2,h3,h4,h5,h6,p, ul li, ol li, strong { color: $white; }
+
+	ol li::before {
+		color: $white;
+	}
+
+}
+
+
+.c-editable--black {
+
+	h1,h2,h3,h4,h5,h6 { color: $black; }
+
+}
+
+
+.c-editable--regular {
+
+	h1,h2,h3,h4,h5,h6 { font-weight: $font-regular; }
+	
+}

@@ -1,0 +1,33 @@
+/* ============================================================
+	* Elements - Plus Icon
+============================================================ */
+
+
+.e-plus-icon {
+    width: 21px;
+    height: 21px;
+    position: relative;
+    
+    span {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background-color: $black;
+        display: block;
+        @include transition(transform);
+
+        &:last-of-type {
+            transform: translateY(-50%) rotate(90deg);
+        }
+        
+    }
+
+
+    &.isActive {
+        span:last-of-type { transform: translateY(-50%) rotate(0deg); }
+    }
+
+}

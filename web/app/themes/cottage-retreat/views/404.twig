@@ -1,0 +1,9 @@
+{% extends "layout/base.twig" %}
+
+{% block content %}
+	{% include 'blocks/hero.twig' with {
+		data: {
+			heading: '404 Page Not Found!'
+		}
+	} %}
+{% endblock %}

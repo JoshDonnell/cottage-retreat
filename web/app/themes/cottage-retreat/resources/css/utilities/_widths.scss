@@ -1,0 +1,72 @@
+/* ============================================================
+	* Utilities - Widths
+============================================================ */
+
+/**
+ * Widths, generates classes for you to use through out
+ * the project. A width, push and pull are all created
+ * from this, they can all be used across any device size.
+ * An example would be:
+ * u-width-1/2
+ *
+ * Widths are also generated for responsive sizes
+ * An exmple would be:
+ * u-width-1/4@ipad
+ */
+
+
+@mixin generateWidths($num1, $num2, $device:null) {
+	$breakpoint: '';
+
+	@if ($device) {
+		$breakpoint: unquote(\@)+$device;
+	}
+
+	.u-width-#{$num1}\/#{$num2}#{$breakpoint} {
+		width: calc(#{((math.div($num1, $num2)) * 100%)});
+		max-width: calc(#{((math.div($num1, $num2)) * 100%)});
+	}
+
+	.u-push-#{$num1}\/#{$num2}#{$breakpoint} {
+		margin-left: calc(#{(($num1 / $num2) * 100%)});
+	}
+
+	.u-pull-#{$num1}\/#{$num2}#{$breakpoint} {
+		margin-left: calc(#{(($num1 / $num2) * -100%)});
+	}
+}
+
+
+@each $number1 in $grid-widths {
+	@each $number2 in $grid-widths {
+		@if ($number1 <= $number2) {
+			@include generateWidths($number1, $number2);
+		}
+	}
+
+	.u-push-0, .u-pull-0 {
+		margin-left: 0;
+	}
+}
+
+.u-width-auto { width: auto; }
+
+@each $device, $breakpoint in $breakpoints {
+	@media (min-width: $breakpoint) {
+		@each $number1 in $grid-widths {
+			@each $number2 in $grid-widths {
+				@if ($number1 < $number2) {
+					@include generateWidths($number1, $number2, $device);
+				}
+			}
+
+			@include generateWidths(1, 1, $device);
+		}
+
+		.u-width-auto\@#{$device} { width: auto; }
+
+		.u-push-0\@#{$device}, .u-pull-0\@#{$device} {
+			margin-left: 0;
+		}
+	}
+}

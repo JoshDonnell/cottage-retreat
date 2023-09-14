@@ -1,0 +1,64 @@
+/* ============================================================
+	* Elements - Button
+============================================================ */
+
+.e-btn {
+	display: inline-block;
+	font-size: $button-font-size;
+    font-weight: $button-weight;
+    line-height: $line-height-small;
+    padding: $button-spacing;
+	border-radius: $border-radius;
+	border: 1px solid transparent;
+	text-align: center;
+	cursor: pointer;
+	min-width: 140px;
+	@include transition(background-color, color);
+}
+
+
+
+
+
+/* Buttons Colours
+============================================================ */
+
+.e-btn--primary {
+	color: $colour-primary;
+	border-color: $colour-primary;
+
+	
+	@media (hover : hover) {
+		&:hover {
+			background-color: $colour-primary;
+			color: $white;
+
+
+			svg {
+				left: $spacing-quarter;
+				
+				path {
+					stroke: $white;
+				}
+			}
+		}
+	}
+
+}
+
+
+
+
+
+/* Buttons Utilities
+============================================================ */
+
+.e-btn--full { width: 100%; }
+
+
+.e-btn--disabled {
+	pointer-events: none;
+	cursor: not-allowed;
+	color: $disabled;
+	border-color: $disabled;
+}

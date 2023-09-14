@@ -1,0 +1,30 @@
+<picture 
+    {% if parent_class %}class="{{ parent_class }}"{% endif %}
+>
+    {% set default_image_src = get_image(default_image) %}
+    {% set tablet_image_src = tablet_image ?: default_image %}
+    {% set mobile_image_src = mobile_image ?: default_image %}
+
+    {% for width in image_sizes %}
+        {% set image_source = default_image_src %}
+        
+        {% if width < 1024 %}
+            {% set image_source = mobile_image_src %}
+        {% elseif width > 1023 and width < 1280  %}
+            {% set image_source = tablet_image_src %}
+        {% endif %}
+
+        <source 
+            media="(max-width: {{ width }}px)" 
+            srcset="{{ get_image(image_source).src(width ~ '-thumb') }}"
+        >
+    {% endfor %}
+
+    <img
+        src="{{ default_image_src.src(image_sizes|last ~ '-thumb') }}"
+        alt="{{ default_image_src.alt ?: default_image_src.title }}"
+        {% if child_class %}class="{{ child_class }}"{% endif %}
+        {% if fetchpriority %}fetchpriority="{{ fetchpriority }}"{% endif %}
+        {% if lazy_loaded and fetchpriority != 'high' %}loading="lazy"{% endif %}
+    >
+</picture>

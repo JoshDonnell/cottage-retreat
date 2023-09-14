@@ -1,0 +1,35 @@
+<nav class="c-header__mobile-menu u-pt-8x u-pb-grid-2x u-flex js-mobile-menu">
+    <div class="o-container u-flex u-flex-columns u-space-between">
+        {% if menu.primary_navigation %}
+            <ul class="o-list-bare c-menu__list">
+                {% for item in  menu.primary_navigation.items %}
+                    <li class="o-list-bare__item c-menu__item u-remove-last u-mb u-mb-0@ipad-pro u-mt-alt u-remove-first">
+                        <a
+                            class="c-menu__link e-heading e-heading--mobile e-heading--white"
+                            href="{{ item.link }}" 
+                            {% if item.target %}target="{{ item.target }}"{% endif %}
+                        >
+                            {{ item.title }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        {% if menu.privacy_navigation %}
+            <ul class="o-list-bare c-menu__list">
+                {% for item in  menu.privacy_navigation.items %}
+                    <li class="o-list-bare__item c-menu__item u-remove-last u-mb u-mb-0@ipad-pro u-mt-half u-remove-first">
+                        <a
+                            class="e-link e-link--white u-font-light"
+                            href="{{ item.link }}" 
+                            {% if item.target %}target="{{ item.target }}"{% endif %}
+                        >
+                            {{ item.title }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+</nav>

@@ -1,0 +1,17 @@
+/* ==========================================================================
+   * Settings - Grid
+   ========================================================================== */
+
+/**
+ *  The settings to power our grid classes, here we can set both
+ *  out gutter settings but also our grid widths to use.
+ *
+ */
+
+$gutters: (
+	gutter:  $spacing-grid,
+	gutter-large: $spacing-grid-2x,
+	0: 0,
+);
+
+$grid-widths: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12;

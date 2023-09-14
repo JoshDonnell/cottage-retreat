@@ -1,0 +1,138 @@
+/* ==========================================================================
+   * Settings - Typography
+   ========================================================================== */
+
+/**
+ * The global Typography settings for the project including
+ * the font family, sizes, weights and letter spacing.
+ *
+ */
+
+/* Typography Family
+============================================================ */
+
+$font-family-primary: 'Open Sans', sans-serif;
+
+
+
+
+
+/* Typography Weights
+============================================================ */
+
+$font-light: 300;
+$font-regular: 400;
+$font-medium: 400;
+$font-semi: 400;
+$font-bold: 700;
+$font-black: 700;
+
+
+
+
+
+/* Typography Heading Sizes
+============================================================ */
+
+$headings: (
+   	one: (
+		font-size: 70px,
+		line-height: 95px,
+		letter-spacing: -2px
+   	),
+   	two: (
+		font-size: 50px,
+		line-height: 60px,
+		letter-spacing: -1px
+   	),
+   	three: (
+		font-size: 40px,
+		line-height: 47px,
+		letter-spacing: -1px
+   	),
+	four: (
+		font-size: 30px,
+		line-height: 40px,
+		letter-spacing: -1px
+   	),
+	five: (
+		font-size: 20px,
+		line-height: 40px,
+		letter-spacing: 0
+   	),
+	six: (
+		font-size: 10px,
+		line-height: 14px,
+		letter-spacing: 2px
+   	),
+	mobile: (
+		font-size: 35px,
+		line-height: 45px,
+		letter-spacing: -1px
+   	),
+	mobile-small: (
+		font-size: 25px,
+		line-height: 30px,
+		letter-spacing: -1px
+   	),
+	mobile-tiny: (
+		font-size: 18px,
+		line-height: 26px,
+		letter-spacing: 0
+   	)
+);
+
+
+
+
+
+/* Typography Body Sizes
+============================================================ */
+
+$font-size-body: 14px;
+$font-size-small: 10px;
+
+
+
+
+
+/* Typography Body Line Heights
+============================================================ */
+
+$line-height-body: 26px;
+$line-height-small: 16px;
+
+
+
+
+
+/* Typography Settings
+============================================================ */
+
+/**
+ * 	1. Enable this option to use the global
+ *  font line height. If disabled each
+ *  heading shall use its own line height
+ *  value set in this file.
+ *
+ * 	2. Enable mobile sizes to auto size
+ *	the headings for mobile. I pefer to
+ *	manually set these on a case by
+ * 	case heading to have total control.
+ */
+
+$font-line-height: 10px;
+$heading-weight: $font-regular;
+$automatic-line-heights: false; /* [1] */
+$automatic-mobile-sizes: false; /* [2] */
+
+
+
+
+
+/* Typography ( Update from Settings )
+============================================================ */
+
+@if ($automatic-line-heights) {
+   $line-height-body: $font-size-body + $font-line-height;
+}

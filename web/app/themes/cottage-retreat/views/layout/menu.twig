@@ -1,0 +1,20 @@
+{% if menu %}
+    <nav class="{{ class }} c-menu">
+        <ul class="o-list-bare c-menu__list {{ direction != 'vertical' ? 'u-flex@ipad-pro u-v-center' }}">
+            {% for item in  menu.items %}
+                <li 
+                    class="o-list-bare__item c-menu__item u-remove-last u-mb u-mb-0@ipad-pro
+                    {{ direction != 'vertical' ? 'u-mr-2x@ipad-pro u-mr-3x@laptop' }}"
+                >
+                    <a
+                        class="c-menu__link e-link e-link--black u-font-light"
+                        href="{{ item.link }}" 
+                        {% if item.target %}target="{{ item.target }}"{% endif %}
+                    >
+                        {{ item.title }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </nav>
+{% endif %}

@@ -1,0 +1,69 @@
+/* ============================================================
+	* Utilities - Spacing
+============================================================ */
+
+/**
+ * Spacing, generates multiple padding and margin helper
+ * classes to be used to DRY your code. There are two
+ * selectors, padding and margin, for these we will use
+ * the prefixes m or p to clean up our HTML. Also we can
+ * be specfic to apply padding to either the top, left,
+ * right or bottom. For these we will use the prefixes
+ * t, l, r, b. Finaly we can use spacing moddifiers to
+ * get different spacing sizes, these are set in the
+ * spacing settins file.
+ * An example of margin top with 2x spacing is:
+ * u-mt-2x
+ *
+ * Spacing can be changed responsively as well,
+ * for this it will use our projects breakpoints.
+ * An exmpal would be:
+ * u-mt-3x@desktop
+ *
+ */
+
+
+@each $property-namespace, $property in $properties {
+	@each $direction-namespace, $direction in $directions {
+		@each $size-namespace, $size in $sizes {
+			.u-#{$property-namespace}#{$direction-namespace}#{$size-namespace} {
+				@each $name in $direction {
+					@if ($name == '-y') {
+						#{$property}-top: $size;
+						#{$property}-bottom: $size;
+					} @else if ($name == '-x') {
+						#{$property}-left: $size;
+						#{$property}-right: $size;
+					} @else {
+						#{$property}#{$name}: $size;
+					}
+				}
+			}
+		}
+	}
+}
+
+
+@each $device, $breakpoint in $breakpoints {
+	@media (min-width: $breakpoint) {
+		@each $property-namespace, $property in $properties {
+			@each $direction-namespace, $direction in $directions {
+				@each $size-namespace, $size in $sizes {
+					.u-#{$property-namespace}#{$direction-namespace}#{$size-namespace}\@#{$device} {
+						@each $name in $direction {
+							@if ($name == '-y') {
+								#{$property}-top: $size;
+								#{$property}-bottom: $size;
+							} @else if ($name == '-x') {
+								#{$property}-left: $size;
+								#{$property}-right: $size;
+							} @else {
+								#{$property}#{$name}: $size;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

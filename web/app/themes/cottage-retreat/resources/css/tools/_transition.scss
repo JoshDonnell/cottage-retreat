@@ -1,0 +1,19 @@
+/* ============================================================
+	* Tools - Transition
+============================================================ */
+
+/**
+ * A simple tool for quick and consistent transitions
+ * @include transition(color, background) {}
+ *
+*/
+
+@mixin transition($type...) {
+	$transitions: ();
+
+	@each $item in $type {
+		$transitions: append($transitions, ($item $transition-time $transition-ease), comma);
+	}
+
+	transition: $transitions;
+}

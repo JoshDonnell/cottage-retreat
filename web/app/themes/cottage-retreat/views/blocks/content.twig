@@ -1,0 +1,29 @@
+<section class="o-row o-row--white">
+    <div class="o-container u-animate js-content-wrapper">
+        <div class="o-layout o-layout--gutter">
+            <div class="o-layout__item u-width-2/3@ipad-pro u-width-1/2@laptop u-push-1/6@laptop">
+                {% if data.sub_heading %}
+                    <p class="e-heading e-heading--six u-mb-grid">{{ data.sub_heading }}</p>
+                {% endif %}
+
+                {% if data.heading %}
+                    <h2 class="e-heading e-heading--four e-heading--three@ipad-pro u-mb-grid">{{ data.heading }}</h2>
+                {% endif %}
+
+                {% if data.content %}
+                    <p>{{ data.content }}</p>
+                {% endif %}
+
+                {% if data.call_to_action.url and data.call_to_action.title %}
+                    <div class="u-mt-grid-2x">
+                        {% include 'components/button.twig' with {
+                            link: data.call_to_action.url,
+                            title: data.call_to_action.title,
+                            colour: 'primary'
+                        } %}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>

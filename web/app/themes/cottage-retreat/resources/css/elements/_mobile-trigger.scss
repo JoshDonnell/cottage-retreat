@@ -1,0 +1,60 @@
+/* ============================================================
+	* Elements - Mobile Trigger Icon
+============================================================ */
+
+
+.e-mobile-trigger {
+    width: 20px;
+    height: 20px;
+    position: relative;
+    
+    span {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: $black;
+        display: block;
+        opacity: 0;
+        @include transition(background, transform, opacity, top);
+    }
+
+
+    &.isLoaded {
+        span {
+            opacity: 1;
+        }
+        
+        span:first-of-type {
+            top: 4px;
+        }
+
+        span:last-of-type {
+            top: calc(100% - 4px);
+        }
+    }
+
+
+    &.isActive {
+        span:first-of-type {
+            top: 50%;
+            transform: rotate(-45deg);
+        }
+
+        span:nth-of-type(2) {
+            opacity: 0;
+        }
+
+        span:last-of-type {
+            top: 50%;
+            transform: rotate(45deg);
+        }
+
+        span {
+            background-color: $white;
+        }
+    }
+
+}

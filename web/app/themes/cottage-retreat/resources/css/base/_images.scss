@@ -1,0 +1,17 @@
+/* ============================================================
+	* Base - Images
+============================================================ */
+
+/**
+ * Default image styling
+ * 
+ * 1. Limit width to 100% of parent
+ * 2. Make sure the correct ratio is maintained
+ *
+ */
+
+img {
+	max-width: 100%; /* 1 */
+	vertical-align: middle;
+	height: auto; /* 2 */
+}

@@ -1,0 +1,26 @@
+<div class="c-accordion u-mb-alt u-mb-grid@ipad u-mb-alt@ipad-pro u-remove-last">
+    <div class="c-accordion__heading u-pb-alt u-pb-grid@ipad u-pb-half@ipad-pro js-accordion-trigger">
+        <div class="o-layout o-layout--gutter u-v-center@ipad-pro">
+            <div class="o-layout__item u-width-1/6 u-width-1/12@ipad-pro">
+                <span class="u-font-light">{{ (loop.index < 10 ? '0') ~ loop.index }}</span>
+            </div>
+
+            <div class="o-layout__item u-width-4/6 u-width-5/6@ipad-pro">
+                <h3 class="e-heading e-heading--mobile-tiny e-heading--five@ipad-pro">{{ data.heading }}</h3>
+            </div>
+
+            <div class="o-layout__item u-width-1/6 u-width-1/12@ipad-pro u-flex u-v-center">
+                <span class="e-plus-icon js-accordion-icon">
+                    <span></span>
+                    <span></span>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="o-layout o-layout--gutter c-accordion__content u-h-center js-accordion-content">
+        <div class="o-layout__item u-width-5/6@ipad-pro u-pt-grid u-pt-alt@ipad-pro">
+            <p>{{ data.content }}</p>
+        </div>
+    </div>
+</div>

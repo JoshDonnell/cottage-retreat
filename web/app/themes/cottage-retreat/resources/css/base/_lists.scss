@@ -1,0 +1,15 @@
+/* ============================================================
+	* Base - Lists
+============================================================ */
+
+/**
+ * Default list styling, can be removed with
+ * the o-list-bare class set in the lsit-bare
+ * object file.
+ *
+ */
+
+ul, ol { margin-bottom: $spacing-base; }
+
+
+	li { margin-left: $spacing-base; }

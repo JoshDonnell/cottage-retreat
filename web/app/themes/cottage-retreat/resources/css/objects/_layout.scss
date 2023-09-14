@@ -1,0 +1,64 @@
+/* ============================================================
+	* Objects - Layout
+============================================================ */
+
+/**
+ * The styling for layouts which are used for gutters on
+ * grids.
+ *
+ */
+
+.o-layout {
+	list-style:none;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+	.o-layout__item {
+		box-sizing: border-box;
+		position: relative;
+		width: 100%;
+		max-width: 100%;
+
+		&:first-of-type { margin-top: 0; }
+
+
+		@for $i from 1 through 8 {
+			&.o-layout__item--#{$i} {
+				&:nth-of-type(-n+#{$i}) {
+					margin-top: 0;
+				}
+			}
+		}
+
+	}
+
+
+@each $name, $size in $gutters {
+	.o-layout--#{$name} {
+		margin-left: -$size;
+
+
+
+		> .o-layout__item {
+			padding-left: $size;
+		}
+
+
+	}
+}
+
+
+
+@each $device, $breakpoint in $breakpoints {
+	@media (min-width: $breakpoint) {
+		@for $i from 1 through 8 {
+			.o-layout__item--#{$i}\@#{$device} {
+				&:nth-of-type(-n+#{$i}) {
+					margin-top: 0;
+				}
+			}
+		}
+	}
+
+}

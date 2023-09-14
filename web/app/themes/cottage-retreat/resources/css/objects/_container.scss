@@ -1,0 +1,25 @@
+/* ============================================================
+	* Objects - Container
+============================================================ */
+
+/**
+ * The styling for containers accross the site
+ *
+ * 1. The container width is set in the spacing
+ *    file under the settings folder.
+ * 2. To center the container in the center of the page
+ *
+ */
+
+.o-container {
+	width: 100%;
+	max-width: $container-width + $spacing-grid-2x; /* 1 */
+	padding: 0 $spacing-grid;
+	margin: 0 auto; /* 2 */
+
+
+	@include by-device(ipad) {
+		padding: 0 $spacing-grid-2x;
+	}
+
+}

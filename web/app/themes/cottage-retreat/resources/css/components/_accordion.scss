@@ -1,0 +1,18 @@
+/* ============================================================
+	* Components - Accordion
+============================================================ */
+
+.c-accordion { }
+
+
+    .c-accordion__heading {
+        cursor: pointer;
+        border-bottom: 1px solid $grey;
+    }
+
+
+    .c-accordion__content {
+        height: 0;
+        overflow: hidden;
+        @include transition(height);
+    }

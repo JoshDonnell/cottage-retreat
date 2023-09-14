@@ -1,0 +1,29 @@
+/* ============================================================
+	* Base - Inputs
+============================================================ */
+
+/**
+ * Default input styling
+ *
+*/
+
+input[type="text"], input[type="email"], input[type="password"], input[type="number"], input[type="tel"], input[type="search"], input[type="email"], textarea {
+	font-family: $font-family-primary;
+	border-radius: $border-radius;
+	border: $inputs-border;
+	background-color: $inputs-background;
+	color: $inputs-colour;
+	padding: $inputs-spacing;
+	font-size: $input-font-size;
+	line-height: $input-line-height;
+	outline: 0;
+	appearance: none;
+	@include transition(border);
+
+
+	&:focus { border-color: $colour-primary; }
+
+	
+	&::placeholder { color: $inputs-placeholder; }
+
+}

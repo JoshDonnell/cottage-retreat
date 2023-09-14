@@ -1,0 +1,21 @@
+<header class="c-header u-pos-rel u-z-up u-py-2x js-header">
+    <div class="o-container u-flex u-v-center u-space-between">
+        {% include 'layout/logo.twig' with {
+            class: 'c-header__logo u-pos-rel u-z-up js-logo'
+        } %}
+
+        {% include 'layout/menu.twig' with {
+            class: 'c-header__menu u-hide u-show@ipad-pro u-pos-rel js-main-navigation',
+            menu: menu.primary_navigation
+        } %}
+
+        <div class="e-mobile-trigger js-mobile-trigger u-pos-rel u-z-up u-hide@ipad-pro">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+
+    {% include 'layout/mobile-menu.twig' %}
+</header>

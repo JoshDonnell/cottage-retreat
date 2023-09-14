@@ -1,0 +1,65 @@
+/* ============================================================
+	* Elements - Link
+============================================================ */
+
+.e-link {
+	cursor: pointer;
+	position: relative;
+
+
+	&::before {
+		content: '';
+		position: absolute;
+		top: calc(100% + 1px);
+		left: 0;
+		width: 0;
+		height: 1px;
+		opacity: 0;
+		@include transition(opacity, width);
+	}
+
+
+	@media (hover : hover) {
+		&:hover {
+			&::before {
+				opacity: 1;
+				width: 100%;
+			}
+		}
+	} 
+
+}
+
+
+
+
+
+/* Link Colours
+============================================================ */
+
+
+.e-link--white {
+	color: $white;
+
+
+	&::before { background-color: $white; }
+
+}
+
+
+.e-link--black {
+	color: $black;
+
+
+	&::before { background-color: $black; }
+
+}
+
+
+
+.e-link--disabled {
+	color: $grey-dark;
+
+	&::before { display: none; }
+	
+}

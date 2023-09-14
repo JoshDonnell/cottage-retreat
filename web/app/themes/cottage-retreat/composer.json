@@ -1,0 +1,40 @@
+{
+  "name": "upstatement/timber-starter-theme",
+  "description": "Cottage Retreat Theme",
+  "type":"wordpress-theme",
+  "license": "MIT",
+  "authors": [
+    {
+      "email": "hello@joshdonnell.co.uk",
+      "name": "joshdonnell"
+    }
+  ],
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://wpackagist.org"
+    }
+  ],
+  "require": {
+    "timber/timber": "2.x-dev"
+  },
+  "extra": {
+    "installer-paths": {
+      "vendor/automattic/wordbless/": [
+        "automattic/wordbless"
+      ]
+    }
+  },
+  "config": {
+    "allow-plugins": {
+      "composer/installers": true,
+      "roots/wordpress-core-installer": true
+    }
+  },
+  "scripts": {
+    "test": "phpunit"
+  },
+  "autoload": {
+    "psr-4": {"CottageRetreat\\": "src/"}
+  }
+}

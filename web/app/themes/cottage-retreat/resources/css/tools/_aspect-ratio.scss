@@ -1,0 +1,23 @@
+/* ============================================================
+	* Tools - Aspect Ratio
+============================================================ */
+
+/**
+ * A mixin to make for giving elemnets heigh via an aspect 
+ * ratio.
+ * Example:
+ * @include aspect-ratio(16, 9);
+ *
+ */
+
+@mixin aspect-ratio($width, $height) {
+	position: relative;
+ 
+	&::before {
+		content: '';
+		padding-top: (math.div($height, $width))  * 100%;
+		display: block;
+		width: 100%;
+	}
+	
+}

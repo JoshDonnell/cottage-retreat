@@ -1,0 +1,22 @@
+/* ============================================================
+	* Tools - Heading
+============================================================ */
+
+/**
+ * The global mixin for creating headings form the settings.
+ * Example:
+ * @include heading(one);
+ *
+*/
+
+@mixin heading($heading: one) {
+	$heading-item: map-get($headings, $heading);
+	font-size: map-get($heading-item, font-size);
+	letter-spacing: map-get($heading-item, letter-spacing);
+
+	@if ($automatic-line-heights) {
+		line-height: map-get($heading-item, font-size) + $font-line-height;
+	} @else {
+		line-height: map-get($heading-item, line-height);
+	}
+}
