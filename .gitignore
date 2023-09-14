@@ -32,6 +32,8 @@ wp-cli.local.yml
 # Theme
 web/app/themes/cottage-retreat/vendor
 web/app/themes/cottage-retreat/node_modules
+web/app/themes/cottage-retreat/mix-manifest.json
+web/app/themes/cottage-retreat/resources/dist
 
 # Languages
 web/app/languages
