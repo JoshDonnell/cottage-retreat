@@ -16,12 +16,8 @@ export const Menus = () => {
 
   const body = document.querySelector('body');
 
-  setTimeout(() => {
-    trigger.classList.add('isLoaded');
-  }, 50);
-
   // Check for trigger, menu and header
-  if (trigger && menu && header) {
+  if (trigger && menu && header && body) {
     trigger.addEventListener('click', () => {
       // Force scroll to top
       window.scrollTo(0,0);

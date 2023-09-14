@@ -19,7 +19,7 @@ mix.setPublicPath('/')
 		content: [
 			'resources/js/**/**/*.js',
 			'resources/js/**/**/*.ts',
-			'views/**/*.twig',
+			'views/**/**/*.twig',
 			'src/**/*.php',
 		],
 		extend: {

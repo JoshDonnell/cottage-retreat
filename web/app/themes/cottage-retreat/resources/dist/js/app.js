@@ -1,6 +1,17 @@
 /******/ (() => { // webpackBootstrap
-/******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
+
+/***/ "./node_modules/@studio-freight/lenis/dist/lenis.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/@studio-freight/lenis/dist/lenis.js ***!
+  \**********************************************************/
+/***/ ((module) => {
+
+function t(t,e){for(var i=0;i<e.length;i++){var o=e[i];o.enumerable=o.enumerable||!1,o.configurable=!0,"value"in o&&(o.writable=!0),Object.defineProperty(t,"symbol"==typeof(n=function(t,e){if("object"!=typeof t||null===t)return t;var i=t[Symbol.toPrimitive];if(void 0!==i){var o=i.call(t,"string");if("object"!=typeof o)return o;throw new TypeError("@@toPrimitive must return a primitive value.")}return String(t)}(o.key))?n:String(n),o)}var n}function e(e,i,o){return i&&t(e.prototype,i),o&&t(e,o),Object.defineProperty(e,"prototype",{writable:!1}),e}function i(){return i=Object.assign?Object.assign.bind():function(t){for(var e=1;e<arguments.length;e++){var i=arguments[e];for(var o in i)Object.prototype.hasOwnProperty.call(i,o)&&(t[o]=i[o])}return t},i.apply(this,arguments)}function o(t,e,i){return Math.max(t,Math.min(e,i))}var n=/*#__PURE__*/function(){function t(){}var e=t.prototype;return e.advance=function(t){var e,i,n,s;if(this.isRunning){var r=!1;if(this.lerp)this.value=(i=this.value,n=this.to,(1-(s=1-Math.exp(-60*this.lerp*t)))*i+s*n),Math.round(this.value)===this.to&&(this.value=this.to,r=!0);else{this.currentTime+=t;var l=o(0,this.currentTime/this.duration,1),h=(r=l>=1)?1:this.easing(l);this.value=this.from+(this.to-this.from)*h}null==(e=this.onUpdate)||e.call(this,this.value,{completed:r}),r&&this.stop()}},e.stop=function(){this.isRunning=!1},e.fromTo=function(t,e,i){var o=i.lerp,n=void 0===o?.1:o,s=i.duration,r=void 0===s?1:s,l=i.easing,h=void 0===l?function(t){return t}:l,a=i.onUpdate;this.from=this.value=t,this.to=e,this.lerp=n,this.duration=r,this.easing=h,this.currentTime=0,this.isRunning=!0,this.onUpdate=a},t}(),s=/*#__PURE__*/function(){function t(t){var e,i,o=this,n=void 0===t?{}:t,s=n.wrapper,r=n.content,l=n.autoResize,h=void 0===l||l;if(this.resize=function(){o.onWrapperResize(),o.onContentResize()},this.onWrapperResize=function(){o.wrapper===window?(o.width=window.innerWidth,o.height=window.innerHeight):(o.width=o.wrapper.clientWidth,o.height=o.wrapper.clientHeight)},this.onContentResize=function(){o.scrollHeight=o.content.scrollHeight,o.scrollWidth=o.content.scrollWidth},this.wrapper=s,this.content=r,h){var a=(e=this.resize,function(){var t=arguments,o=this;clearTimeout(i),i=setTimeout(function(){e.apply(o,t)},250)});this.wrapper!==window&&(this.wrapperResizeObserver=new ResizeObserver(a),this.wrapperResizeObserver.observe(this.wrapper)),this.contentResizeObserver=new ResizeObserver(a),this.contentResizeObserver.observe(this.content)}this.resize()}return t.prototype.destroy=function(){var t,e;null==(t=this.wrapperResizeObserver)||t.disconnect(),null==(e=this.contentResizeObserver)||e.disconnect()},e(t,[{key:"limit",get:function(){return{x:this.scrollWidth-this.width,y:this.scrollHeight-this.height}}}]),t}(),r=/*#__PURE__*/function(){function t(){this.events={}}var e=t.prototype;return e.emit=function(t){for(var e=this.events[t]||[],i=0,o=e.length;i<o;i++)e[i].apply(e,[].slice.call(arguments,1))},e.on=function(t,e){var i,o=this;return(null==(i=this.events[t])?void 0:i.push(e))||(this.events[t]=[e]),function(){var i;o.events[t]=null==(i=o.events[t])?void 0:i.filter(function(t){return e!==t})}},e.off=function(t,e){var i;this.events[t]=null==(i=this.events[t])?void 0:i.filter(function(t){return e!==t})},e.destroy=function(){this.events={}},t}(),l=/*#__PURE__*/function(){function t(t,e){var i=this,n=e.wheelMultiplier,s=void 0===n?1:n,l=e.touchMultiplier,h=void 0===l?2:l,a=e.normalizeWheel,c=void 0!==a&&a;this.onTouchStart=function(t){var e=t.targetTouches?t.targetTouches[0]:t,o=e.clientY;i.touchStart.x=e.clientX,i.touchStart.y=o,i.lastDelta={x:0,y:0}},this.onTouchMove=function(t){var e=t.targetTouches?t.targetTouches[0]:t,o=e.clientX,n=e.clientY,s=-(o-i.touchStart.x)*i.touchMultiplier,r=-(n-i.touchStart.y)*i.touchMultiplier;i.touchStart.x=o,i.touchStart.y=n,i.lastDelta={x:s,y:r},i.emitter.emit("scroll",{deltaX:s,deltaY:r,event:t})},this.onTouchEnd=function(t){i.emitter.emit("scroll",{deltaX:i.lastDelta.x,deltaY:i.lastDelta.y,event:t})},this.onWheel=function(t){var e=t.deltaX,n=t.deltaY;i.normalizeWheel&&(e=o(-100,e,100),n=o(-100,n,100)),i.emitter.emit("scroll",{deltaX:e*=i.wheelMultiplier,deltaY:n*=i.wheelMultiplier,event:t})},this.element=t,this.wheelMultiplier=s,this.touchMultiplier=h,this.normalizeWheel=c,this.touchStart={x:null,y:null},this.emitter=new r,this.element.addEventListener("wheel",this.onWheel,{passive:!1}),this.element.addEventListener("touchstart",this.onTouchStart,{passive:!1}),this.element.addEventListener("touchmove",this.onTouchMove,{passive:!1}),this.element.addEventListener("touchend",this.onTouchEnd,{passive:!1})}var e=t.prototype;return e.on=function(t,e){return this.emitter.on(t,e)},e.destroy=function(){this.emitter.destroy(),this.element.removeEventListener("wheel",this.onWheel,{passive:!1}),this.element.removeEventListener("touchstart",this.onTouchStart,{passive:!1}),this.element.removeEventListener("touchmove",this.onTouchMove,{passive:!1}),this.element.removeEventListener("touchend",this.onTouchEnd,{passive:!1})},t}();module.exports=/*#__PURE__*/function(){function t(t){var e=this,o=void 0===t?{}:t,h=o.wrapper,a=void 0===h?window:h,c=o.content,u=void 0===c?document.documentElement:c,p=o.wheelEventsTarget,v=void 0===p?a:p,d=o.smoothWheel,m=void 0===d||d,f=o.smoothTouch,g=void 0!==f&&f,S=o.syncTouch,y=void 0!==S&&S,w=o.syncTouchLerp,T=void 0===w?.1:w,b=o.__iosNoInertiaSyncTouchLerp,z=void 0===b?.4:b,E=o.touchInertiaMultiplier,M=void 0===E?35:E,L=o.duration,_=o.easing,O=void 0===_?function(t){return Math.min(1,1.001-Math.pow(2,-10*t))}:_,R=o.lerp,W=void 0===R?L&&.1:R,k=o.infinite,x=void 0!==k&&k,H=o.orientation,j=void 0===H?"vertical":H,A=o.gestureOrientation,X=void 0===A?"vertical":A,Y=o.touchMultiplier,D=void 0===Y?1:Y,I=o.wheelMultiplier,P=void 0===I?1:I,C=o.normalizeWheel,U=void 0!==C&&C,N=o.autoResize,V=void 0===N||N;this.onVirtualScroll=function(t){var o=t.deltaX,n=t.deltaY,s=t.event;if(!s.ctrlKey){var r=s.type.includes("touch"),l=s.type.includes("wheel");if(!("vertical"===e.options.gestureOrientation&&0===n||"horizontal"===e.options.gestureOrientation&&0===o||r&&"vertical"===e.options.gestureOrientation&&0===e.scroll&&!e.options.infinite&&n<=0)){var h=s.composedPath();if(!(h=h.slice(0,h.indexOf(e.rootElement))).find(function(t){var e;return(null==t.hasAttribute?void 0:t.hasAttribute("data-lenis-prevent"))||r&&(null==t.hasAttribute?void 0:t.hasAttribute("data-lenis-prevent-touch"))||l&&(null==t.hasAttribute?void 0:t.hasAttribute("data-lenis-prevent-wheel"))||(null==(e=t.classList)?void 0:e.contains("lenis"))}))if(e.isStopped||e.isLocked)s.preventDefault();else{if(e.isSmooth=(e.options.smoothTouch||e.options.syncTouch)&&r||e.options.smoothWheel&&l,!e.isSmooth)return e.isScrolling=!1,void e.animate.stop();s.preventDefault();var a=n;"both"===e.options.gestureOrientation?a=Math.abs(n)>Math.abs(o)?n:o:"horizontal"===e.options.gestureOrientation&&(a=o);var c=r&&e.options.syncTouch,u=r&&"touchend"===s.type&&Math.abs(a)>1;u&&(a=e.velocity*e.options.touchInertiaMultiplier),e.scrollTo(e.targetScroll+a,i({programmatic:!1},c&&{lerp:u?e.syncTouchLerp:e.options.__iosNoInertiaSyncTouchLerp}))}}}},this.onScroll=function(){if(!e.isScrolling){var t=e.animatedScroll;e.animatedScroll=e.targetScroll=e.actualScroll,e.velocity=0,e.direction=Math.sign(e.animatedScroll-t),e.emit()}},window.lenisVersion="1.0.22",a!==document.documentElement&&a!==document.body||(a=window),this.options={wrapper:a,content:u,wheelEventsTarget:v,smoothWheel:m,smoothTouch:g,syncTouch:y,syncTouchLerp:T,__iosNoInertiaSyncTouchLerp:z,touchInertiaMultiplier:M,duration:L,easing:O,lerp:W,infinite:x,gestureOrientation:X,orientation:j,touchMultiplier:D,wheelMultiplier:P,normalizeWheel:U,autoResize:V},this.dimensions=new s({wrapper:a,content:u,autoResize:V}),this.rootElement.classList.add("lenis"),this.velocity=0,this.isStopped=!1,this.isSmooth=m||g,this.isScrolling=!1,this.targetScroll=this.animatedScroll=this.actualScroll,this.animate=new n,this.emitter=new r,this.options.wrapper.addEventListener("scroll",this.onScroll,{passive:!1}),this.virtualScroll=new l(v,{touchMultiplier:D,wheelMultiplier:P,normalizeWheel:U}),this.virtualScroll.on("scroll",this.onVirtualScroll)}var h=t.prototype;return h.destroy=function(){this.emitter.destroy(),this.options.wrapper.removeEventListener("scroll",this.onScroll,{passive:!1}),this.virtualScroll.destroy(),this.dimensions.destroy(),this.rootElement.classList.remove("lenis"),this.rootElement.classList.remove("lenis-smooth"),this.rootElement.classList.remove("lenis-scrolling"),this.rootElement.classList.remove("lenis-stopped")},h.on=function(t,e){return this.emitter.on(t,e)},h.off=function(t,e){return this.emitter.off(t,e)},h.setScroll=function(t){this.isHorizontal?this.rootElement.scrollLeft=t:this.rootElement.scrollTop=t},h.resize=function(){this.dimensions.resize()},h.emit=function(){this.emitter.emit("scroll",this)},h.reset=function(){this.isLocked=!1,this.isScrolling=!1,this.velocity=0,this.animate.stop()},h.start=function(){this.isStopped=!1,this.reset()},h.stop=function(){this.isStopped=!0,this.animate.stop(),this.reset()},h.raf=function(t){var e=t-(this.time||t);this.time=t,this.animate.advance(.001*e)},h.scrollTo=function(t,e){var i=this,n=void 0===e?{}:e,s=n.offset,r=void 0===s?0:s,l=n.immediate,h=void 0!==l&&l,a=n.lock,c=void 0!==a&&a,u=n.duration,p=void 0===u?this.options.duration:u,v=n.easing,d=void 0===v?this.options.easing:v,m=n.lerp,f=void 0===m?!p&&this.options.lerp:m,g=n.onComplete,S=void 0===g?null:g,y=n.force,w=n.programmatic,T=void 0===w||w;if(!this.isStopped||void 0!==y&&y){if(["top","left","start"].includes(t))t=0;else if(["bottom","right","end"].includes(t))t=this.limit;else{var b,z;if("string"==typeof t?z=document.querySelector(t):null!=(b=t)&&b.nodeType&&(z=t),z){if(this.options.wrapper!==window){var E=this.options.wrapper.getBoundingClientRect();r-=this.isHorizontal?E.left:E.top}var M=z.getBoundingClientRect();t=(this.isHorizontal?M.left:M.top)+this.animatedScroll}}if("number"==typeof t){if(t+=r,t=Math.round(t),this.options.infinite?T&&(this.targetScroll=this.animatedScroll=this.scroll):t=o(0,t,this.limit),h)return this.animatedScroll=this.targetScroll=t,this.setScroll(this.scroll),this.reset(),this.emit(),void(null==S||S());if(!T){if(t===this.targetScroll)return;this.targetScroll=t}this.animate.fromTo(this.animatedScroll,t,{duration:p,easing:d,lerp:f,onUpdate:function(t,e){var o=e.completed;c&&(i.isLocked=!0),i.isScrolling=!0,i.velocity=t-i.animatedScroll,i.direction=Math.sign(i.velocity),i.animatedScroll=t,i.setScroll(i.scroll),T&&(i.targetScroll=t),o&&(c&&(i.isLocked=!1),requestAnimationFrame(function(){i.isScrolling=!1}),i.velocity=0,null==S||S()),i.emit()}})}}},e(t,[{key:"rootElement",get:function(){return this.options.wrapper===window?this.options.content:this.options.wrapper}},{key:"limit",get:function(){return this.dimensions.limit[this.isHorizontal?"x":"y"]}},{key:"isHorizontal",get:function(){return"horizontal"===this.options.orientation}},{key:"actualScroll",get:function(){return this.isHorizontal?this.rootElement.scrollLeft:this.rootElement.scrollTop}},{key:"scroll",get:function(){return this.options.infinite?(this.animatedScroll%(t=this.limit)+t)%t:this.animatedScroll;var t}},{key:"progress",get:function(){return 0===this.limit?1:this.scroll/this.limit}},{key:"isSmooth",get:function(){return this.__isSmooth},set:function(t){this.__isSmooth!==t&&(this.rootElement.classList.toggle("lenis-smooth",t),this.__isSmooth=t)}},{key:"isScrolling",get:function(){return this.__isScrolling},set:function(t){this.__isScrolling!==t&&(this.rootElement.classList.toggle("lenis-scrolling",t),this.__isScrolling=t)}},{key:"isStopped",get:function(){return this.__isStopped},set:function(t){this.__isStopped!==t&&(this.rootElement.classList.toggle("lenis-stopped",t),this.__isStopped=t)}}]),t}();
+//# sourceMappingURL=lenis.js.map
+
+
+/***/ }),
 
 /***/ "./resources/js/animations/fadeIn.ts":
 /*!*******************************************!*\
@@ -8,6 +19,7 @@
   \*******************************************/
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
+"use strict";
 
 
 /**
@@ -45,6 +57,7 @@ exports.FadeIn = FadeIn;
   \******************************************/
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
+"use strict";
 
 
 /**
@@ -54,9 +67,11 @@ Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports.Animations = void 0;
+var smoothScroll_1 = __webpack_require__(/*! ./smoothScroll */ "./resources/js/animations/smoothScroll.ts");
 var menu_1 = __webpack_require__(/*! ./menu */ "./resources/js/animations/menu.ts");
 var scroll_1 = __webpack_require__(/*! ./scroll */ "./resources/js/animations/scroll.ts");
 var Animations = function Animations() {
+  (0, smoothScroll_1.SmoothScroll)();
   (0, menu_1.Menu)();
   (0, scroll_1.Scroll)();
 };
@@ -70,6 +85,7 @@ exports.Animations = Animations;
   \*****************************************/
 /***/ ((__unused_webpack_module, exports) => {
 
+"use strict";
 
 
 /**
@@ -108,6 +124,7 @@ exports.Menu = Menu;
   \*******************************************/
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
+"use strict";
 
 
 /**
@@ -127,21 +144,26 @@ var Scroll = function Scroll() {
   var footerWrapper = document.querySelector('.js-footer-wrapper');
   var accordionWrapper = document.querySelector('.js-accordion-wrapper');
   var galleryItems = document.querySelectorAll('.js-gallery-item');
+  // Create our blank array of elements
   var elementsToAnimate = [];
+  // Check for elements within the DOM
   if (heroWrapper) elementsToAnimate.push(heroWrapper);
   if (contentWrapper) elementsToAnimate.push(contentWrapper);
+  if (accordionWrapper) elementsToAnimate.push(accordionWrapper);
+  if (footerWrapper) elementsToAnimate.push(footerWrapper);
   if (galleryItems.length) {
     galleryItems.forEach(function (item) {
       elementsToAnimate.push(item);
     });
   }
-  if (accordionWrapper) elementsToAnimate.push(accordionWrapper);
-  if (footerWrapper) elementsToAnimate.push(footerWrapper);
+  // Check if we have any active elements in our Array
   if (elementsToAnimate.length) {
+    // Loop over our list of elements
     elementsToAnimate.forEach(function (element, key) {
+      // Create a new scroll trigger intance
       all_1.ScrollTrigger.create({
         trigger: element,
-        start: 'top +=75%',
+        start: 'top +=90%',
         onEnter: function onEnter() {
           (0, fadeIn_1.FadeIn)(element, key == 0 ? 0.5 : 0);
         },
@@ -154,12 +176,55 @@ exports.Scroll = Scroll;
 
 /***/ }),
 
+/***/ "./resources/js/animations/smoothScroll.ts":
+/*!*************************************************!*\
+  !*** ./resources/js/animations/smoothScroll.ts ***!
+  \*************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Smooth Scroll via Lenis
+ */
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.SmoothScroll = void 0;
+var lenis_1 = __importDefault(__webpack_require__(/*! @studio-freight/lenis */ "./node_modules/@studio-freight/lenis/dist/lenis.js"));
+var all_1 = __webpack_require__(/*! gsap/all */ "./node_modules/gsap/all.js");
+var SmoothScroll = function SmoothScroll() {
+  all_1.gsap.registerPlugin(all_1.ScrollTrigger);
+  var lenis = new lenis_1["default"]({
+    duration: 1.5,
+    smoothWheel: true,
+    easing: function easing(t) {
+      return t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
+    }
+  });
+  lenis.on('scroll', all_1.ScrollTrigger.update);
+  all_1.gsap.ticker.add(function (time) {
+    lenis.raf(time * 1000);
+  });
+  all_1.gsap.ticker.lagSmoothing(0);
+};
+exports.SmoothScroll = SmoothScroll;
+
+/***/ }),
+
 /***/ "./resources/js/app.ts":
 /*!*****************************!*\
   !*** ./resources/js/app.ts ***!
   \*****************************/
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
+"use strict";
 
 
 /**
@@ -188,6 +253,7 @@ document.addEventListener('DOMContentLoaded', function () {
   \********************************************/
 /***/ ((__unused_webpack_module, exports) => {
 
+"use strict";
 
 
 /**
@@ -209,7 +275,7 @@ var Accordions = function Accordions() {
   // Check if we have accordions
   if (accordionElements.length) {
     // Setup our accordaions array
-    var accordions_1 = [];
+    var accordions = [];
     // Loop over the accordions
     accordionElements.forEach(function (accordionElement) {
       // Set our accord object
@@ -224,7 +290,7 @@ var Accordions = function Accordions() {
       // Check for our parent, content and icon
       if (accordion.parent && accordion.content && accordion.icon) {
         // Push our accordion elements into the accordions array
-        accordions_1.push(accordion);
+        accordions.push(accordion);
         accordion.element.addEventListener('click', function () {
           // Toggle out active class
           accordion.icon.classList.toggle('isActive');
@@ -234,7 +300,7 @@ var Accordions = function Accordions() {
           if (accordion.active) {
             // Expand the accordion
             if (options.limitToOneOpen === true) {
-              closeNonActiveAcorrdions(accordion, accordions_1);
+              closeNonActiveAcorrdions(accordion, accordions);
             }
             // Set our contnent height based off the object height
             accordion.content.style.height = accordion.height + 'px';
@@ -249,10 +315,10 @@ var Accordions = function Accordions() {
       }
     });
     // Set the heights on load within our accordions array
-    setAccordionHeights(accordions_1);
+    setAccordionHeights(accordions);
     // Run the helper on resize to allow the accordions to easly open
     window.addEventListener('resize', function () {
-      setAccordionHeights(accordions_1);
+      setAccordionHeights(accordions);
     });
   }
   // Helper function to set the heights of the accordions
@@ -292,6 +358,7 @@ exports.Accordions = Accordions;
   \**********************************************/
 /***/ ((__unused_webpack_module, exports) => {
 
+"use strict";
 
 
 /**
@@ -316,6 +383,7 @@ exports.Introduction = Introduction;
   \***************************************/
 /***/ ((__unused_webpack_module, exports) => {
 
+"use strict";
 
 
 /**
@@ -335,11 +403,8 @@ var Menus = function Menus() {
   // Set the header
   var header = document.querySelector('.js-header');
   var body = document.querySelector('body');
-  setTimeout(function () {
-    trigger.classList.add('isLoaded');
-  }, 50);
   // Check for trigger, menu and header
-  if (trigger && menu && header) {
+  if (trigger && menu && header && body) {
     trigger.addEventListener('click', function () {
       // Force scroll to top
       window.scrollTo(0, 0);
@@ -360,6 +425,7 @@ exports.Menus = Menus;
   \****************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   CSSPlugin: () => (/* binding */ CSSPlugin),
@@ -1929,6 +1995,7 @@ _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.gsap.registerPlugin(CSSPlugin);
   \********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   CSSRulePlugin: () => (/* binding */ CSSRulePlugin),
@@ -2077,6 +2144,7 @@ _getGSAP() && gsap.registerPlugin(CSSRulePlugin);
   \*****************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   CustomEase: () => (/* binding */ CustomEase),
@@ -2463,6 +2531,7 @@ CustomEase.version = "3.12.2";
   \****************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   Draggable: () => (/* binding */ Draggable),
@@ -5176,6 +5245,7 @@ _getGSAP() && gsap.registerPlugin(Draggable);
   \***************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   EasePack: () => (/* binding */ EasePack),
@@ -5405,6 +5475,7 @@ _getGSAP() && gsap.registerPlugin(SlowMo);
   \******************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   EaselPlugin: () => (/* binding */ EaselPlugin),
@@ -5760,6 +5831,7 @@ _getGSAP() && gsap.registerPlugin(EaselPlugin);
   \***********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   Flip: () => (/* binding */ Flip),
@@ -7287,6 +7359,7 @@ typeof window !== "undefined" && window.gsap && window.gsap.registerPlugin(Flip)
   \***********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   MotionPathPlugin: () => (/* binding */ MotionPathPlugin),
@@ -7671,6 +7744,7 @@ _getGSAP() && gsap.registerPlugin(MotionPathPlugin);
   \***************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   Observer: () => (/* binding */ Observer),
@@ -8376,6 +8450,7 @@ _getGSAP() && gsap.registerPlugin(Observer);
   \*****************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   PixiPlugin: () => (/* binding */ PixiPlugin),
@@ -8851,6 +8926,7 @@ _getGSAP() && gsap.registerPlugin(PixiPlugin);
   \*********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   ScrollToPlugin: () => (/* binding */ ScrollToPlugin),
@@ -9134,6 +9210,7 @@ _getGSAP() && gsap.registerPlugin(ScrollToPlugin);
   \********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   ScrollTrigger: () => (/* binding */ ScrollTrigger),
@@ -11755,6 +11832,7 @@ _getGSAP() && gsap.registerPlugin(ScrollTrigger);
   \*****************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   TextPlugin: () => (/* binding */ TextPlugin),
@@ -11936,6 +12014,7 @@ _getGSAP() && gsap.registerPlugin(TextPlugin);
   \**********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   Back: () => (/* reexport safe */ _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.Back),
@@ -12058,6 +12137,7 @@ TweenMaxWithCSS = gsapWithCSS.core.Tween;
   \****************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   Animation: () => (/* binding */ Animation),
@@ -16600,6 +16680,7 @@ var Power0 = _easeMap.Power0,
   \*******************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   Matrix2D: () => (/* binding */ Matrix2D),
@@ -17039,6 +17120,7 @@ function getGlobalMatrix(element, inverse, adjustGOffset, includeScrollInFixed) 
   \******************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   bezierToPoints: () => (/* binding */ bezierToPoints),
@@ -18556,6 +18638,7 @@ export function pointToScreen(svgElement, point) {
   \********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   emojiExp: () => (/* binding */ emojiExp),
@@ -18679,6 +18762,7 @@ function emojiSafeSplit(text, delimiter, trim, preserveSpaces) {
   \********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
 
@@ -18705,7 +18789,7 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 		};
 /******/ 	
 /******/ 		// Execute the module function
-/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __webpack_require__);
 /******/ 	
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;

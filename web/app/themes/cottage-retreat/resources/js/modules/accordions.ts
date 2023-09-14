@@ -28,7 +28,7 @@ export const Accordions = () => {
 		const accordions:AccordionItem[] = [];
 
 		// Loop over the accordions
-		accordionElements.forEach(accordionElement => {
+		accordionElements.forEach((accordionElement:HTMLElement) => {
 			// Set our accord object
 			const accordion:AccordionItem = {
 				element: accordionElement,
