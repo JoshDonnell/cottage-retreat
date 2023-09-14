@@ -28,3 +28,10 @@ web/.htaccess
 
 # WP-CLI
 wp-cli.local.yml
+
+# Theme
+web/app/themes/cottage-retreat/vendor
+web/app/themes/cottage-retreat/node_modules
+
+# Languages
+web/app/languages
